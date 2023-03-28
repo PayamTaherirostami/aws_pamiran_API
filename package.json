@@ -1,0 +1,54 @@
+{
+
+    "name": "backend",
+
+    "version": "0.0.0",
+
+    "main": "server.js",
+
+    "scripts": {
+
+        "start": "node server.js",
+
+        "devStart": "nodemon server.js"
+
+    },
+
+    "author": "Payam Taherirostami",
+
+    "dependencies": {
+
+        "async": "^3.2.3",
+
+        "body-parser": "^1.20.0",
+
+        "cors": "^2.8.5",
+
+        "dotenv": "^14.2.0",
+
+        "express": "^4.17.2",
+
+        "firebase": "^9.8.4",
+
+        "google-auth-library": "^7.11.0",
+
+        "morgan": "^1.10.0",
+
+        "mysql": "^2.18.1",
+
+        "mysql2": "^2.3.3",
+
+        "node": "^17.3.0"
+
+    },
+
+    "devDependencies": {
+
+        "nodemon": "^2.0.15",
+
+        "prettier": "2.5.1"
+
+    }
+
+}
+
