@@ -4,7 +4,7 @@ var db = require('../db');
 
 
 router.get('/', (req, res, next) => {
-    let mySQLQuery = 'SELECT Account_Name AS title, OrderDate AS date, OrderStatus AS status, BackgroundColor As backgroundColor FROM ClientOrders ';
+    let mySQLQuery = 'SELECT Account_Name AS title, OrderDate AS date, OrderStatus AS status, BackgroundColor As backgroundColor FROM clientorders ';
        db.query(mySQLQuery, (error, results) => {
           if (error) {
              console.log(mySQLQuery, error);

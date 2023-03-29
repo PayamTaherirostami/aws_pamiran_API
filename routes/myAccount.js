@@ -4,7 +4,7 @@ var db = require('../db');
 
 // Gets all the clients
 router.get('/', (req, res, next) => {
-    let mySQLQuery = `SELECT ClientId, Account_Name FROM Client WHERE EMAIL='payamtaherirostami@gmail.com' `;
+    let mySQLQuery = `SELECT ClientId, Account_Name FROM client WHERE EMAIL='payamtaherirostami@gmail.com' `;
     db.query(mySQLQuery, (err, results) => {
        if (!err) {
           res.send(results);
@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
  });
 
  router.get('/:id', (req, res, next) => {
-    let mySQLQuery = `SELECT ClientId, Account_Name FROM Client WHERE  ClientId = '${req.params.id}'`;
+    let mySQLQuery = `SELECT ClientId, Account_Name FROM client WHERE  ClientId = '${req.params.id}'`;
     db.query(mySQLQuery, (err, results) => {
        if (!err) {
           res.send(results);

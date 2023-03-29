@@ -5,7 +5,7 @@ var db = require('../db');
 
 // Returns the orders the are NOT complete (status == 0)
 router.get('/', (req, res, next) => {
-    let mySQLQuery = `SELECT * FROM ClientOrders `;
+    let mySQLQuery = `SELECT * FROM clientorders `;
        db.query(mySQLQuery, (error, results) => {
           if (error) {
              console.log(mySQLQuery, error);
@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 
 
  router.get('/Ordered', (req, res, next) => {
-   let mySQLQuery = `SELECT * FROM ClientOrders  WHERE OrderStatus = 'Ordered'`;
+   let mySQLQuery = `SELECT * FROM clientorders  WHERE OrderStatus = 'Ordered'`;
       db.query(mySQLQuery, (error, results) => {
          if (error) {
             console.log(mySQLQuery, error);
@@ -29,7 +29,7 @@ router.get('/', (req, res, next) => {
       })
 });
 router.get('/Pending', (req, res, next) => {
-   let mySQLQuery = `SELECT * FROM ClientOrders  WHERE OrderStatus = 'Pending'`;
+   let mySQLQuery = `SELECT * FROM clientorders  WHERE OrderStatus = 'Pending'`;
       db.query(mySQLQuery, (error, results) => {
          if (error) {
             console.log(mySQLQuery, error);
@@ -41,7 +41,7 @@ router.get('/Pending', (req, res, next) => {
 });
  
  router.get('/inProcess', (req, res, next) => {
-    let mySQLQuery = `SELECT * FROM ClientOrders WHERE OrderStatus = 'InProcess'`;
+    let mySQLQuery = `SELECT * FROM clientorders WHERE OrderStatus = 'InProcess'`;
        db.query(mySQLQuery, (error, results) => {
           if (error) {
              console.log(mySQLQuery, error);
@@ -53,7 +53,7 @@ router.get('/Pending', (req, res, next) => {
  });
   
  router.get('/completed', (req, res, next) => {
-    let mySQLQuery = `SELECT * FROM ClientOrders WHERE OrderStatus = 'Completed'`;
+    let mySQLQuery = `SELECT * FROM clientorders WHERE OrderStatus = 'Completed'`;
        db.query(mySQLQuery, (error, results) => {
           if (error) {
              console.log(mySQLQuery, error);
@@ -67,7 +67,7 @@ router.get('/Pending', (req, res, next) => {
 
   // Gets the order by ClientID
 router.get('/:id', (req, res, next) => {
-   let mySQLQuery = `SELECT * FROM ClientOrders WHERE ClientId = '${req.params.id}'`;
+   let mySQLQuery = `SELECT * FROM clientorders WHERE ClientId = '${req.params.id}'`;
    db.query(mySQLQuery, (err, results) => {
       if (!err) {
          res.send(results);
@@ -81,7 +81,7 @@ router.get('/:id', (req, res, next) => {
 
  //Create ClientOrders
  router.post('/', (req, res, next) => { 
-       let insert1 = `INSERT INTO ClientOrders (OrdersId, ClientId, ProductId, Account_Name, OrderDate, OrderStatus, Qnt, Price,BackgroundColor)  VALUES 
+       let insert1 = `INSERT INTO clientorders (OrdersId, ClientId, ProductId, Account_Name, OrderDate, OrderStatus, Qnt, Price,BackgroundColor)  VALUES 
                    (DEFAULT, '${req.body.ClientId}', '${req.body.ProductId}', '${req.body.Account_Name}','${req.body.OrderDate}'
                    , '${req.body.OrderStatus}' ,'${req.body.Qnt}','${req.body.Price}','${req.body.BackgroundColor}')`;
                     // console.log(req.body);
@@ -102,7 +102,7 @@ router.get('/:id', (req, res, next) => {
                });
 
 router.put('/:id', (req, res, next) => {
-            let update = `UPDATE ClientOrders SET OrderStatus = '${req.body.OrderStatus}',BackgroundColor='${req.body.BackgroundColor}' WHERE OrdersId = ${req.params.id}`;
+            let update = `UPDATE clientorders SET OrderStatus = '${req.body.OrderStatus}',BackgroundColor='${req.body.BackgroundColor}' WHERE OrdersId = ${req.params.id}`;
            
             db.query(update, (err, results) => {
                if (!err) {

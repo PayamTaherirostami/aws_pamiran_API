@@ -4,7 +4,7 @@ var db = require('../db');
 
  // Gets all the msgs
  router.get('/', (req, res, next) => {
-    let mySQLQuery = `SELECT * FROM Msg`;
+    let mySQLQuery = `SELECT * FROM msg`;
     db.query(mySQLQuery, (err, results) => {
        if (!err) {
           res.send(results);
@@ -14,7 +14,7 @@ var db = require('../db');
     })
  });
  router.get('/:id', (req, res, next) => {
-    let mySQLQuery = `SELECT * FROM Msg WHERE ClientId = '${req.params.id}'`;
+    let mySQLQuery = `SELECT * FROM msg WHERE ClientId = '${req.params.id}'`;
     db.query(mySQLQuery, (err, results) => {
        if (!err) {
           res.send(results);
