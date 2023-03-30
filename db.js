@@ -47,7 +47,7 @@ require('dotenv').config();
 // 
 
 const connection = mysql.createPool({
-    host:"pamiran-aws.cqjdkxufjygk.us-west-2.rds.amazonaws.com",
+    host:"pamiran-aws-api.cqjdkxufjygk.us-west-2.rds.amazonaws.com",
     user:"admin",
     password:"Payam1361",
     database:"Pamiran_Aws",
